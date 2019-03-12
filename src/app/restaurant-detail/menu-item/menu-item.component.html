@@ -1,0 +1,12 @@
+<div class="menu-item-info-box" >
+    <span class="menu-item-info-box-icon"><img [src]="menuOfRestaurant?.imagePath"></span>
+
+    <div class="menu-item-info-box-content">
+      <span class="menu-item-info-box-text">{{menuOfRestaurant?.name}}</span>
+      <span class="menu-item-info-box-detail">{{menuOfRestaurant?.description}}</span>
+      <span class="menu-item-info-box-price">{{menuOfRestaurant?.price | currency: 'BRL': true}}</span>
+      <a (click)="menuItensEmit()" class=""><i class="fa fa-plus-circle"></i> Adicionar</a>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+<!-- /.info-box -->
