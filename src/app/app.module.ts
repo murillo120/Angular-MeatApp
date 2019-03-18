@@ -20,7 +20,12 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { Carrinho } from './restaurant-detail/carrinho/carrinho.service';
 import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
-import { InputcustomComponent } from './shared/inputcustom/inputcustom.component'
+import { InputcustomComponent } from './shared/inputcustom/inputcustom.component';
+import { PaymentComponent } from './shared/payment/payment.component'
+import { MatTooltipModule } from '@angular/material'
+import { MatButtonModule } from '@angular/material'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsComponent } from './order/src/app/order/products/products.component';
 
 
 @NgModule({
@@ -37,15 +42,18 @@ import { InputcustomComponent } from './shared/inputcustom/inputcustom.component
     MenuItemComponent,
     ReviewsComponent,
     OrderComponent,
-    InputcustomComponent
+    InputcustomComponent,
+    PaymentComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
-
-
+    RouterModule.forRoot(ROUTES),
+    MatTooltipModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [RestaurantService,Carrinho],
   bootstrap: [AppComponent]
