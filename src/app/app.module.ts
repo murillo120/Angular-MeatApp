@@ -25,7 +25,8 @@ import { PaymentComponent } from './shared/payment/payment.component'
 import { MatTooltipModule } from '@angular/material'
 import { MatButtonModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsComponent } from './order/src/app/order/products/products.component';
+import { ProductsComponent } from './order/products/products.component';
+import { OrderService } from './order/order.service';
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import { ProductsComponent } from './order/src/app/order/products/products.compo
     MatButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [RestaurantService,Carrinho],
+  providers: [RestaurantService,Carrinho,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

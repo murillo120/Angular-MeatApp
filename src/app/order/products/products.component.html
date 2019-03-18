@@ -1,3 +1,41 @@
-<p>
-  products works!
-</p>
+<div class="col-xs-12" *ngIf="!products">
+  <p>não há itens no carrinho, clique <a [routerLink] = "['/restaurants']" >aqui</a> para verificar a lista de restaurantes</p>
+</div>
+
+<div class="row" *ngIf="products">
+  <div class="col-xs-12">
+    <p class="lead">Itens do Pedido:</p>
+  </div>
+  <div class="col-xs-12 table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="text-center">Quantidade</th>
+        <th>Item</th>
+        <th>Descrição</th>
+        <th class="text-right">Subtotal</th>
+        <th class="text-right"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td class="text-center">
+          <a (click) = "decrease(product)" class="btn btn-sm"><i class="fa fa-minus"></i></a>
+          {{product.quantity}}
+          <a (click) = "increase(product)" class="btn btn-sm"><i class="fa fa-plus"></i></a>
+        </td>
+        <td>{{product.menuItem.name}}</td>
+
+        <td>{{product.menuItem.description}}</td>
+        <td class="text-right">{{product.value() | currency: 'BRL':true}}</td>
+        <td class="text-right">
+          <a (click) = "remove(product)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->

@@ -20,7 +20,7 @@ export class Carrinho {
         let verifyItem = this.itens.find((anotherItem) => anotherItem.menuItem.id == item.id)
         if(verifyItem){
 
-            verifyItem.quantity++
+            this.increase(verifyItem)
             
         }else{
             this.itens.push(new CarrinhoModel(item))
@@ -31,6 +31,18 @@ export class Carrinho {
 
         this.itens.splice(this.itens.indexOf(item),1)
 
+    }
+
+    increase(item: CarrinhoModel){
+        item.quantity++
+    }
+
+    decrease(item: CarrinhoModel){
+        item.quantity--
+
+        if(item.quantity == 0){
+            this.removeItem(item)
+        }
     }
 
 
